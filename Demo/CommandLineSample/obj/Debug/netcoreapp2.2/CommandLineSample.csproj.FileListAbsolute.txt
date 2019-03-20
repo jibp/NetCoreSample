@@ -1,0 +1,11 @@
+C:\NetCoreDemo\Demo\CommandLineSample\bin\Debug\netcoreapp2.2\CommandLineSample.deps.json
+C:\NetCoreDemo\Demo\CommandLineSample\bin\Debug\netcoreapp2.2\CommandLineSample.runtimeconfig.json
+C:\NetCoreDemo\Demo\CommandLineSample\bin\Debug\netcoreapp2.2\CommandLineSample.runtimeconfig.dev.json
+C:\NetCoreDemo\Demo\CommandLineSample\bin\Debug\netcoreapp2.2\CommandLineSample.dll
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.csprojAssemblyReference.cache
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.csproj.CoreCompileInputs.cache
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.AssemblyInfoInputs.cache
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.AssemblyInfo.cs
+C:\NetCoreDemo\Demo\CommandLineSample\bin\Debug\netcoreapp2.2\CommandLineSample.pdb
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.dll
+C:\NetCoreDemo\Demo\CommandLineSample\obj\Debug\netcoreapp2.2\CommandLineSample.pdb

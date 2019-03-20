@@ -1,0 +1,7 @@
+C:\NetCoreDemo\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.deps.json
+C:\NetCoreDemo\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.runtimeconfig.json
+C:\NetCoreDemo\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.runtimeconfig.dev.json
+C:\NetCoreDemo\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.dll
+C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.csproj.CoreCompileInputs.cache
+C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfoInputs.cache
+C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfo.cs
