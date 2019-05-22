@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JwtAuthSample</name>
+    </assembly>
+    <members>
+        <member name="M:JwtAuthSample.Models.SecurityRequirementsDocumentFilter.Apply(Swashbuckle.AspNetCore.Swagger.SwaggerDocument,Swashbuckle.AspNetCore.SwaggerGen.DocumentFilterContext)">
+             <summary>
+            
+             </summary>
+             <param name="swaggerDoc"></param>
+             <param name="context"></param>
+        </member>
+    </members>
+</doc>

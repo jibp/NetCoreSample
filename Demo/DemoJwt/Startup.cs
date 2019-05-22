@@ -33,6 +33,7 @@ namespace DemoJwt
         public void ConfigureServices(IServiceCollection services)
 
 
+
         {
             services.AddSingleton<UserStore>();
 

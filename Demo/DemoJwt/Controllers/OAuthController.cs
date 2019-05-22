@@ -31,7 +31,7 @@ namespace DemoJwt.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Consts.Secret);
             var authTime = DateTime.UtcNow;
-            var expiresAt = authTime.AddHours(2);
+            var expiresAt = authTime.AddMinutes(1);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
