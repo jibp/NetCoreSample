@@ -5,3 +5,14 @@ C:\NetCoreDemo\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.dl
 C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.csproj.CoreCompileInputs.cache
 C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfoInputs.cache
 C:\NetCoreDemo\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfo.cs
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.deps.json
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.runtimeconfig.json
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.runtimeconfig.dev.json
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.dll
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\bin\Debug\netcoreapp2.2\JsonConfigSample.pdb
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.csprojAssemblyReference.cache
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.csproj.CoreCompileInputs.cache
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfoInputs.cache
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.AssemblyInfo.cs
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.dll
+D:\Demo案例\NetCoreSample\Demo\JsonConfigSample\obj\Debug\netcoreapp2.2\JsonConfigSample.pdb

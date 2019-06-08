@@ -16,6 +16,10 @@ using System.Text;
 using System.IO;
 using System.Reflection;
 using Swashbuckle.AspNetCore.Swagger;
+using JwtAuthSample.Store;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+//using JwtAuthSample.Filter;
 
 namespace JwtAuthSample
 {
@@ -31,6 +35,7 @@ namespace JwtAuthSample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+        
             services.Configure<JwtSettings>(Configuration.GetSection("JwtSettings"));
             var jwtSeetings = new JwtSettings();
             Configuration.Bind("JwtSettings", jwtSeetings);
@@ -39,6 +44,7 @@ namespace JwtAuthSample
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+               
             }).
             AddJwtBearer(o =>
             {
@@ -52,16 +58,33 @@ namespace JwtAuthSample
                     ValidAudience = jwtSeetings.Audience,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSeetings.SecretKey))
                 };
-              
+
+                //o.SecurityTokenValidators.Clear();
+                //o.SecurityTokenValidators.Add(new MyTokenValidator());
+                //o.Events = new JwtBearerEvents()
+                //{
+                //    OnMessageReceived = context => {
+                //        var token = context.Request.Headers["mytoken"];
+                //        context.Token = token.FirstOrDefault();
+                //        return Task.CompletedTask;
+                //    }
+                //};
+
 
             });
+
+            //添加Claim授权
+            services.AddAuthorization(options => {
+                options.AddPolicy("SuperAdminOnly", policy => { policy.RequireClaim("SuperAdminOnly"); });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerGen(swagger =>
             {
                 swagger.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
                 {
                     Version = "v1",
-                    Title = "DemoJwt Api"
+                    Title = "DemoJwt Apijdk"
                 });
 
                 // 为 Swagger JSON and UI设置xml文档注释路径
@@ -76,6 +99,13 @@ namespace JwtAuthSample
                     Type = "apiKey"
                 });
                 swagger.DocumentFilter<SecurityRequirementsDocumentFilter>();
+            });
+            var decryptStr = DesDecrypt(Configuration["ConnectionString"], "whp4-3hn8-sqoy19");
+            services.AddDbContextPool<JwtDbContext>(options =>
+            {
+                 options.UseSqlServer("server=139.224.59.224,9999;uid=SaaSOp;pwd=sM1!2@3#;database=SupportManagementDB_20180719;");
+                //services.AddDbContextPool<BloggingContext>(options => options.UseMySql("Server=localhost;Port=3306;Database=WebBloggingDB; User=root;Password=;"));
+               // options.UseMySql("Server=localhost;Port=3306;Database=WebBloggingDB; User=root;Password=;");
             });
         }
 
@@ -94,6 +124,43 @@ namespace JwtAuthSample
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "JwtAuthSample.xml");
                 c.RoutePrefix = string.Empty;
             });
+        }
+
+        public static string DesEncrypt(string input, string key)
+        {
+
+            byte[] inputArray = Encoding.UTF8.GetBytes(input);
+            var tripleDES = TripleDES.Create();
+            var byteKey = Encoding.UTF8.GetBytes(key);
+            byte[] allKey = new byte[24];
+            System.Buffer.BlockCopy(byteKey, 0, allKey, 0, 16);
+            System.Buffer.BlockCopy(byteKey, 0, allKey, 16, 8);
+            tripleDES.Key = allKey;
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = tripleDES.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Dispose();
+            cTransform.Dispose();
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        public static string DesDecrypt(string input, string key)
+        {
+            byte[] inputArray = Convert.FromBase64String(input);
+            var tripleDES = TripleDES.Create();
+            var byteKey = Encoding.UTF8.GetBytes(key);
+            byte[] allKey = new byte[24];
+            System.Buffer.BlockCopy(byteKey, 0, allKey, 0, 16);
+            System.Buffer.BlockCopy(byteKey, 0, allKey, 16, 8);
+            tripleDES.Key = allKey;
+            tripleDES.Mode = CipherMode.ECB;
+            tripleDES.Padding = PaddingMode.PKCS7;
+            ICryptoTransform cTransform = tripleDES.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(inputArray, 0, inputArray.Length);
+            tripleDES.Dispose();
+            cTransform.Dispose();
+            return Encoding.UTF8.GetString(resultArray);
         }
     }
 }

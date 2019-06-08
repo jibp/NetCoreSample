@@ -13,6 +13,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace JwtAuthSample.Controllers
 {
+  
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorizeController : ControllerBase
@@ -22,6 +23,9 @@ namespace JwtAuthSample.Controllers
         {
             _jwtSeetigns = _jwtSeetignsAccesser.Value;
         }
+        /// <summary>
+        /// 授权
+        /// </summary>
         [HttpPost]
         public IActionResult Token([FromBody]LoginViewModel viewmodel)
         {
@@ -34,7 +38,8 @@ namespace JwtAuthSample.Controllers
 
                 var claims = new Claim[] {
                     new Claim(ClaimTypes.Name,"jesse"),
-                     new Claim(ClaimTypes.Role,"admin")
+                     new Claim(ClaimTypes.Role,"admin"),
+                     new Claim("SuperAdminOnly","true")
                 };
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSeetigns.SecretKey));
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -47,7 +52,7 @@ namespace JwtAuthSample.Controllers
                     creds
                     );
 
-                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
+                return Ok(new { token ="Bearer "+ new JwtSecurityTokenHandler().WriteToken(token) });
             }
 
             return BadRequest();
